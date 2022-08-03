@@ -1,0 +1,55 @@
+The concepts we discussed early on in the course  fairly early on are going to be things like generics and the specification pattern and the repository  pattern and the unit of work pattern. 
+
+Alternatively, if you're quite experienced with don't  know core and or angular, then this might well be too easy for you and the pace might be too slow  for you. 
+
+This framework is very mature now and breaking  changes between different major releases are few  and far between. 
+
+Now, we're also going to be taking a look at  Swangard that comes with the dot net five template,  but for ease of use and to speed us up as we test our  different methods and endpoints that we create in
+
+And the experience is roughly identical. 
+
+And nowadays in the year, twenty twenty one is  actually a pretty good code editor. 
+
+And it's a very lightweight editor and I personally  work a lot faster in US code than I do in Visual 
+
+
+=======================================================================================================
+
+So this lesson is only aimed at those of you that are  actually going to use visual studio code to develop your application and as I mentioned, 
+if you've not  used it or you've been away for some time, but 
+
+And it's significantly more lightweight than Visual  Studio. 
+
+But your first troubleshooting step with Visual Studio  Code is if something's not working. 
+
+The one that I have installed by Joss Creative is one  that is maintained and is functional with the 
+
+and it will give us the scaffolding for a C sharp class  or interface. 
+
+So what I would recommend you do is you come in  and bookmark the git repository for this particular project, so you've always got something to refer to. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,174 @@
+﻿@inject SignInManager<AppUser> signiInManager
+@inject UserManager<AppUser> userManager
+
+@if (signiInManager.IsSignedIn(User))
+{ 
+    
+}
+
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <title>@ViewBag.Title</title>
+
+
+        <environment include="Development">
+            <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+        </environment>
+
+
+
+        <environment exclude="Development">
+
+            @*<environment include="Production,Staging,CustomProf">*@
+
+            @*<link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />*@
+
+            <link rel="stylesheet"
+                  href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+                  integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+                  crossorigin="anonymous"
+                  asp-fallback-href="~/lib/bootstrap/css/bootstrap.min.css"
+                  asp-fallback-test-class="sr-only"
+                  asp-fallback-test-property="position"
+                  asp-fallback-test-value="absolute"
+                  asp-suppress-fallback-integrity="true">
+            @*
+
+                Les 5 lignes suivants donnent à l' application de gérer le problème au niveau du chargement de CDN
+                  à ce niveau l'application charge le fichier à partir de serveur '
+            *@
+        </environment>
+
+
+        @if (IsSectionDefined("styleDetails"))
+        {
+            RenderSection("styleDetails", true);
+        }
+
+        @if (IsSectionDefined("styleIndex"))
+        {
+            RenderSection("styleIndex", true);
+        }
+
+    </head>
+
+    <body>
+
+
+        <nav class=" mb-5 navbar navbar-expand-lg navbar-light bg-light">
+
+            <div class="container">
+                <a class="navbar-brand" asp-action="index" asp-controller="Employee2">
+                    <img src="~/images/01.png" class="rounded-circle" width="40" height="40">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="index" asp-controller="Employee2">Employees</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="Create" asp-controller="Employee2">Create employee</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="ListRoles" asp-controller="Administration">List Roles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="CreateRole" asp-controller="Administration">Create Role</a>
+                        </li>
+
+                    </ul>
+
+                    <ul class="navbar-nav ml-auto">
+
+                        @if (signiInManager.IsSignedIn(User))
+                        {
+                            var userDB = await userManager.GetUserAsync(User);
+
+
+                            <li class="nav-1tem dropdown">
+                                <a class="nav-1ink dropdown-toggle" data-toggle="dropdown" href="#" role="button">@User.Identity.Name </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-route-id="@userDB.Id" asp-action="EditAccount" asp-controller="Account" > Edit Account</a>
+
+                                    <a class="dropdown-item" href="#"> Helpt</a>
+
+                                    <div>
+                                        <ul class="navbar-nav">
+                                            <li class="nav-item">
+                                                <form asp-action="Logout" asp-controller="Account" method="post">
+                                                    <button type="submit" class="nav-link text-dark" style="width:10em;">
+                                                        Logout
+                                                    </button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+
+                    @**@
+                }
+                                    else
+                                    {
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Register" asp-controller="Account">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Login" asp-controller="Account">Login</a>
+                    </li>
+}
+
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </nav>
+
+
+        @RenderBody()
+
+
+
+
+        @if (IsSectionDefined("scriptDetails"))
+        {
+            RenderSection("scriptDetails", true);
+        }
+
+        @if (IsSectionDefined("scriptIndex"))
+        {
+            RenderSection("scriptIndex", true);
+        }
+
+
+        <environment include="Development">
+
+            <script src="~/lib/jquery/jquery.js"></script>
+
+            <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+
+            <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+            <script src="~/lib/bootstrap/js/bootstrap.bundle.js"></script>
+
+
+        </environment>
+        <environment exclude="Development">
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+            <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+            <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+        </environment>
+
+        @RenderSection("GetNameOfImageInInput", false);
+    </body>
+</html>

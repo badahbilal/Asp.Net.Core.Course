@@ -1,0 +1,32 @@
+﻿@using EmptyProject.Models
+@model IEnumerable<Employee>
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "List View ";
+}
+
+        <h1>List Employes</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Email</td>
+                    
+                </tr>
+            </thead>
+             <tbody>
+                @{
+                    foreach (Employee emp in Model)
+                    {
+                        <tr>
+                            <td>@emp.Id</td>
+                            <td>@emp.Name</td>
+                            <td>@emp.Email</td>
+                        </tr>
+                    }
+                }
+             </tbody>
+        </table>

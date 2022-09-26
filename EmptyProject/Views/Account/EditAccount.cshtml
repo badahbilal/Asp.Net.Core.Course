@@ -1,0 +1,75 @@
+﻿
+@model EditaccountViewModel
+
+@{
+    ViewBag.Title = "Edit Account";
+    Layout = "_Layout";
+}
+
+<div class="container">
+
+
+    <div class="row">
+        <h3>Register Employe</h3>
+
+    </div>
+
+    <div class="row">
+        <form method="post">
+            <input type="text" class="form-control col-12" asp-for="Id" hidden />
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="FristName"></label>
+                    <input type="text" class="form-control col-12" asp-for="FristName" />
+                    <span asp-validation-for="FristName" class="small text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="LastName"></label>
+                    <input type="text" class="form-control col-12" asp-for="LastName" />
+                    <span asp-validation-for="LastName" class="small text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="Age"></label>
+                    <input class="form-control col-12" asp-for="Age" />
+                    <span asp-validation-for="Age" class="small text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input type="password" class="form-control col-12" asp-for="Password" />
+                    <span asp-validation-for="Password" class="small text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword"></label>
+                    <input type="password" class="form-control col-12" asp-for="ConfirmPassword" />
+                    <span asp-validation-for="ConfirmPassword" class="small text-danger"></span>
+                </div>
+            </div>
+
+
+
+            <div class="form-row">
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Validate</button>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+
+    <div class="row">
+        <div class='text text-danger' asp-validation-summary='All'></div>
+    </div>
+</div>

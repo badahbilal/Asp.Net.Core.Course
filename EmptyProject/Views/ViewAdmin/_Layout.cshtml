@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+        <title>@ViewBag.Title</title>
+    @if (IsSectionDefined("styleDetails"))
+    {
+        RenderSection("styleDetails", true);
+    }
+
+    @if (IsSectionDefined("styleIndex"))
+    {
+        RenderSection("styleIndex", true);
+    }
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+    <h1>Admin Page</h1>
+
+        @if (IsSectionDefined("scriptDetails"))
+    {
+        RenderSection("scriptDetails", true);
+    }
+
+       @if (IsSectionDefined("scriptIndex"))
+    {
+        RenderSection("scriptIndex", true);
+    }
+</body>
+</html>

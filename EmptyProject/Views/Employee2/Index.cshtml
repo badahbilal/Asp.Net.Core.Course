@@ -1,0 +1,61 @@
+﻿@using EmptyProject.Models
+@model IEnumerable<Employee>
+
+@{
+
+    ViewBag.Title = "Index Employee 2";
+    Layout = "_Layout";
+}
+
+
+<div class="container">
+
+    <h3 class="alert-light alert">Hello from Details View Employee 2</h3>
+
+
+    <p>
+
+        Bonjour : BADAH Bilal<br />
+        your Age is : 26
+
+    </p>
+
+
+    <h1>List Employes</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Image</td>
+                <td>actions</td>
+
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (Employee emp in Model)
+                {
+                    <tr>
+                        <td>@emp.Id</td>
+                        <td>@emp.Name</td>
+                        <td>@emp.Email</td>
+
+                        <td>
+                            <!-- le Tag Helper asp-append-version='true' permet au navigateur de rafraichir l'image si ce derniére a été changé dans le serveur  -->
+                        <img asp-append-version="true"  width="100" height="100" class="img-thumbnail" src="@emp.ImagePath" /></td>
+                        <td>
+                            <a class="btn btn-primary" asp-action="Details" asp-controller="Employee2" asp-route-id="@emp.Id">Details</a>
+                            <a class="btn btn-info" asp-action="Update" asp-controller="Employee2" asp-route-id="@emp.Id">Update</a>
+                            <a class="btn btn-danger" asp-action="Details" asp-controller="Employee2" asp-route-id="@emp.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+</div>
+

@@ -1,0 +1,58 @@
+﻿
+@model AccountLoginViewModel
+
+
+
+@{
+    ViewBag.Title = "Login User";
+    Layout = "_Layout";
+}
+
+<div class="container">
+
+
+    <div class="row">
+        <h3>Login Employe</h3>
+
+    </div>
+
+    <div class="row">
+        <form enctype="multipart/form-data"  method="post">
+            
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input type="email" class="form-control col-12" asp-for="Email" />
+                    <span asp-validation-for="Email" class="small text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input type="password" class="form-control col-12" asp-for="Password" />
+                    <span asp-validation-for="Password" class="small text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    Remember Me
+                    <input class="custom-checkbox" asp-for="Remember" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Login</button>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+
+    <div class="row">
+        <div class='text text-danger' asp-validation-summary='All'></div>
+    </div>
+</div>

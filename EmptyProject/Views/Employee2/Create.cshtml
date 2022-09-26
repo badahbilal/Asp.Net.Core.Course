@@ -1,0 +1,94 @@
+﻿
+@model EmployeeCreateViewModel
+
+@inject ICompanyRepository<Employee> _EmpolyeeRepository
+
+@{
+    ViewBag.Title = "Create Employee 2";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    @*@if(ViewBag.Error != null)
+            {
+        <h4 class="alert alert-danger">
+            @ViewBag.Error
+        </h4>
+            }*@
+
+    <div class="row">
+        <h3>Create Employe</h3>
+
+    </div>
+
+    <div class="row">
+        <form enctype="multipart/form-data" asp-action="Create" asp-controller="Employee2" method="post">
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input type="text" class="form-control col-12" asp-for="Name" />
+                    <span asp-validation-for="Name" class="small text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input type="email" class="form-control col-12" asp-for="Email" />
+                    <span asp-validation-for="Email" class="small text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="Department"></label>
+                    <select class="form-control custom-select col-12" asp-for="Department" asp-items="Html.GetEnumSelectList<Department>()">
+                        <option value="">Select Department</option>
+                    </select>
+                    <span asp-validation-for="Department" class="small text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupeFileAdd01">Upload</span>
+                        </div>
+                       <div class="custom-file">
+                           <input asp-for="Image" class="custom-file-input" id="inputGroupeFile01" />
+                           <label class="custom-file-label" for="inputGroupeFile01">Choose image</label>
+                       </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Add record</button>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    Number of Employees  is <span class="font-weight-bold text-success">@_EmpolyeeRepository.GetEntities().Count()</span>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row">
+        <div class='text text-danger' asp-validation-summary='All'></div>
+    </div>
+</div>
+
+@section GetNameOfImageInInput{
+    <script>
+        $(document).ready(function () {
+
+            $("#inputGroupeFile01").on("change", function () {
+                $(this).next(".custom-file-label").html($(this).val().split("\\").pop());
+            })
+        })
+    </script>
+ }

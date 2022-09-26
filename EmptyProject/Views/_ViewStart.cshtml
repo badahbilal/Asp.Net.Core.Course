@@ -1,0 +1,14 @@
+﻿@{
+   ViewBag.index = " view start Global";
+
+
+    if(ViewBag.user == "simple")
+    {
+        Layout = "_Layout";
+    }else if(ViewBag.user == "admin")
+    {
+        Layout = "~/Views/ViewAdmin/_Layout.cshtml";
+    }
+}
+
+

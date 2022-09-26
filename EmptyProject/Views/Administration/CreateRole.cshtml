@@ -1,0 +1,33 @@
+﻿@model AdministrationCreateRoleViewModel
+
+@{
+    ViewBag.Title = "Create New Role";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="row">
+        <h3>Create New Role</h3>
+
+    </div>
+    <div class="row">
+        <form enctype="multipart/form-data" method="post">
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="RoleName"></label>
+                    <input class="form-control col-12" asp-for="RoleName" />
+                    <span asp-validation-for="RoleName" class="small text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Create Role</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="row">
+        <div class='text text-danger' asp-validation-summary='All'></div>
+    </div>
+</div>

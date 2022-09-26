@@ -1,0 +1,17 @@
+﻿@model StatusResult
+
+@{
+    ViewBag.Title = "404 Error";
+    Layout = "_Layout";
+}
+<div class="container">
+    <div class="jumbotron">
+        <div class="alert alert-danger">
+            Page cannot be found<br />
+            @Model.Message<br />
+            @Model.Path<br />
+            @Model.QS
+        </div>
+        <a class="btn btn-primary" asp-action="index" asp-controller="Employee2">index</a>
+    </div>
+</div>

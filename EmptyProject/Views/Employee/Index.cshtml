@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Index Employee";
+}
+
+
+
+        <h3>Hello from index View Employee</h3>
+
+
+        <p>
+
+                Bonjour : @ViewData["name"]<br />
+                 your Age is : @ViewData["age"]
+              
+        </p>
+
+
+
+@section styleIndex{
+    <link href="~/Styles/Employee/StyleIndex.css"  rel="stylesheet" />
+}
+
+@section scriptIndex {
+   <script>
+        console.log("Hello from Index");
+   </script>
+}
